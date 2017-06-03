@@ -18,16 +18,11 @@ before_install:
   - cmake -DBUILD_SHARED_LIBS=ON ../
   - make
   - sudo make install
-  - pwd
   - cd ../../
-  - pwd
 
 script:
-  - pwd
-  - ls -la
-  - uname -a
-  - $CXX --version
   - mkdir build
   - cd build
   - cmake ../
-  # - ctest
+  - make
+  - ctest
