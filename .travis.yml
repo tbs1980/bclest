@@ -29,9 +29,11 @@ before_install:
 script:
   - pwd
   - mkdir build; cd build
-  - cmake ../
+  - cmake ../; make VERBOSE=1
+  - ctest
 
 after_success:
   - cd ${TRAVIS_BUILD_DIR}
   - pwd
+  - lcov --directory . --capture --output-file coverage.info
 
