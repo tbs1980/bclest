@@ -35,6 +35,7 @@ elseif(CMAKE_SYSTEM_NAME MATCHES "Linux")
     add_cxx_compiler_flag("-O0" "DEBUG")
     add_cxx_compiler_flag("-fprofile-arcs" "DEBUG")
     add_cxx_compiler_flag("-ftest-coverage" "DEBUG")
+    add_cxx_compiler_flag("--coverage" "DEBUG")
 
     add_cxx_compiler_flag("-g0" "RELEASE")
     add_cxx_compiler_flag("-O3" "RELEASE")
