@@ -30,6 +30,12 @@ if(CMAKE_SYSTEM_NAME MATCHES "Darwin")
 elseif(CMAKE_SYSTEM_NAME MATCHES "Linux")
   if(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
     add_cxx_compiler_flag("-g3" "DEBUG")
+    
+    # for code coverage
+    add_cxx_compiler_flag("-O0" "DEBUG")
+    add_cxx_compiler_flag("-fprofile-arcs" "DEBUG")
+    add_cxx_compiler_flag("-ftest-coverage" "DEBUG")
+
     add_cxx_compiler_flag("-g0" "RELEASE")
     add_cxx_compiler_flag("-O3" "RELEASE")
 

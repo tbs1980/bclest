@@ -22,5 +22,6 @@ include_directories(${EIGEN3_INCLUDE_DIR})
 add_subdirectory(bclest)
 
 # unit testing
+include(CTest)
 enable_testing()
 add_subdirectory(tests)
