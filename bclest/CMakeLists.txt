@@ -1,0 +1,1 @@
+add_executable(bclest ui/bclest.cc)
