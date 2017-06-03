@@ -1,6 +1,11 @@
 project(bclest CXX)
 cmake_minimum_required(VERSION 2.8.0)
 
+# assume that we are in debug mode if build type not specified
+if (NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE "Debug")
+endif()
+
 # vscode cmake helper
 include(CMakeToolsHelpers OPTIONAL)
 
