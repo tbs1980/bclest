@@ -28,7 +28,8 @@ before_install:
 
 script:
   - pwd
-  - mkdir build;
+  - mkdir build; cd build
+  - cmake ../
 
 after_success:
   - cd ${TRAVIS_BUILD_DIR}
