@@ -9,7 +9,7 @@ before_install:
   - sudo apt-get -qq install g++-4.8
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 90
   - sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-4.8 90
-  - sudo apt-get install -y libeigen3-dev libgtest-dev
+  - sudo apt-get install -y libeigen3-dev libgtest-dev lcov
   - wget https://github.com/google/googletest/archive/release-1.8.0.tar.gz
   - tar xf release-1.8.0.tar.gz
   - cd googletest-release-1.8.0
