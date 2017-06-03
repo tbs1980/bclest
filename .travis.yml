@@ -16,8 +16,11 @@ before_install:
   - cmake -DBUILD_SHARED_LIBS=ON .
   - make
   - sudo make install
+  - cd
 
 script:
+  - pwd
+  - ls
   - uname -a
   - $CXX --version
   - mkdir build
