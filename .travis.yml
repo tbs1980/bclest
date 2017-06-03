@@ -4,13 +4,13 @@ compiler:
   - gcc
 
 before_install:
-  sudo apt-get -qq update
-  sudo apt-get install libeigen3-dev
+  - sudo apt-get -qq update
+  - sudo apt-get install libeigen3-dev
 
 script:
-  uname -a
-  $CXX --version
-  mkdir build
-  cd build
-  cmake ../
-  ctest
+  - uname -a
+  - $CXX --version
+  - mkdir build
+  - cd build
+  - cmake ../
+  - ctest
