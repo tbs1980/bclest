@@ -33,8 +33,9 @@ elseif(CMAKE_SYSTEM_NAME MATCHES "Linux")
     
     # for code coverage
     add_cxx_compiler_flag("-O0" "DEBUG")
-    add_cxx_compiler_flag("-fprofile-arcs" "DEBUG")
+    # add_cxx_compiler_flag("-fprofile-arcs" "DEBUG")
     add_cxx_compiler_flag("-ftest-coverage" "DEBUG")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs")
     # add_cxx_compiler_flag("--coverage" "DEBUG")
     # check_cxx_compiler_flag(--coverage COMPILER_SUPPORT_COVERAGE)
     # if(COMPILER_SUPPORT_COVERAGE)
