@@ -29,7 +29,8 @@ before_install:
 script:
   - pwd
   - mkdir build; cd build
-  - cmake ../; make VERBOSE=1
+  - cmake ../
+  - make VERBOSE=1
   - ctest
 
 after_success:
