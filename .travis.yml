@@ -25,13 +25,11 @@ before_install:
   - cmake -DBUILD_SHARED_LIBS=ON ../
   - make; sudo make install
   - cd ../../
-  - ls /usr/include
 
 script:
-  - pwd
   - mkdir build; cd build
-  - cmake ../
-  - make VERBOSE=1
+  - cmake -DEIGEN3_INCLUDE_DIR=/usr/include/eigen3 ../
+  - make
   - ctest
 
 after_success:
