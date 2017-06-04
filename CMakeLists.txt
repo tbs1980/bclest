@@ -1,5 +1,5 @@
 project(bclest CXX)
-cmake_minimum_required(VERSION 2.8.0)
+cmake_minimum_required(VERSION 3.0.0)
 
 # assume that we are in debug mode if build type not specified
 if (NOT CMAKE_BUILD_TYPE)
@@ -20,6 +20,9 @@ endif()
 
 # custom compiler flags
 include(set_compiler_flags)
+
+# additional packages
+find_package(Eigen3 3.3 REQUIRED NO_MODULE)
 
 include_directories(${CMAKE_SOURCE_DIR})
 include_directories(${EIGEN3_INCLUDE_DIR})
