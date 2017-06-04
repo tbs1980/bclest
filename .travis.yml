@@ -25,6 +25,7 @@ before_install:
   - cmake -DBUILD_SHARED_LIBS=ON ../
   - make; sudo make install
   - cd ../../
+  - ls /usr/include
 
 script:
   - pwd
