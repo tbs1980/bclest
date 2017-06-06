@@ -2,7 +2,11 @@
 #define BCLEST_MC_CHAIN_H_
 
 #include <cstddef>
+#include <fstream>
+#include <iomanip>
+#include <sstream>
 #include <stdexcept>
+#include <string>
 #include <type_traits>
 
 #include <Eigen/Dense>
@@ -48,6 +52,27 @@ public:
     }
     samples_.row(sample_id) = sample;
     weights_(sample_id) = weight;
+  }
+
+  void ToCSV(std::string const &file_name) {
+    std::string delim(",");
+    std::ofstream out_file;
+    out_file.open(file_name, std::ios::trunc);
+    if (out_file.is_open()) {
+      out_file << std::scientific;
+      out_file << std::setprecision(10);
+      for (std::size_t i = 0; i < num_samples_; ++i) {
+        out_file << weights_(i) << delim;
+        for (std::size_t j = 0; j < num_dims_ - 1; ++j) {
+          out_file << samples_(i, j) << delim;
+        }
+        out_file << samples_(i, num_dims_ - 1) << std::endl;
+      }
+    } else {
+      throw std::invalid_argument(
+          "samples output file is not writable. check path");
+    }
+    out_file.close();
   }
 
 private:

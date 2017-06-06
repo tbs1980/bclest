@@ -54,3 +54,18 @@ TEST(ChainTest, ChainSetSample) {
   }
   ASSERT_EQ(chain.GetWeights()(sample_id), weight);
 }
+
+TEST(ChainTest, ChainToCSV) {
+  using namespace bclest::mc;
+  using namespace Eigen;
+  std::size_t const num_samples(1000);
+  std::size_t const num_dims(10);
+  Chain<double> chain(num_samples, num_dims);
+  for (std::size_t i = 0; i < num_samples; ++i) {
+    double const weight(0.5 * i);
+    VectorXd const sample = VectorXd::Random(num_dims);
+    chain.SetSample(i, sample, weight);
+  }
+  std::string chain_file_name("/tmp/chain_test.csv");
+  chain.ToCSV(chain_file_name);
+}
